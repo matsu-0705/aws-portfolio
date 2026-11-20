@@ -26,3 +26,6 @@ AWSとTerraformを使用して、Webサーバー2台とApplication Load Balancer
 - CloudWatchによる監視設定
 - 構成図の追加
 - HTTPS対応
+
+## AWS構成図
+![AWS構成図](architecture.png)
