@@ -29,3 +29,17 @@ AWSとTerraformを使用して、Webサーバー2台とApplication Load Balancer
 
 ## AWS構成図
 ![AWS構成図](architecture.png)
+
+## CloudWatchによる監視
+AWSコンソールからCloudWatchアラームを設定し、
+2台のEC2のCPU使用率を監視しています。
+
+- 監視対象：EC2 × 2台
+- メトリクス：CPUUtilization
+- しきい値：80%以上
+- 評価期間：5分 × 2回
+- 通知：なし
+- 設定方法：AWSマネジメントコンソール
+
+両インスタンスのアラームが正常（OK）に
+なっていることを確認しました。
