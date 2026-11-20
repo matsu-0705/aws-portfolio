@@ -29,3 +29,36 @@ resource "aws_subnet" "public_b" {
     Name = "portfolio-public-b"
   }
 }
+# インターネットゲートウェイ
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "portfolio-igw"
+  }
+}
+# パブリックルートテーブル
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.main.id
+  }
+
+  tags = {
+    Name = "portfolio-public-rt"
+  }
+}
+
+# サブネットAにルートテーブルを関連付け
+resource "aws_route_table_association" "public_a" {
+  subnet_id      = aws_subnet.public_a.id
+  route_table_id = aws_route_table.public.id
+}
+
+# サブネットBにルートテーブルを関連付け
+resource "aws_route_table_association" "public_b" {
+  subnet_id      = aws_subnet.public_b.id
+  route_table_id = aws_route_table.public.id
+}
