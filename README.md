@@ -28,7 +28,7 @@ AWSとTerraformを使用して、Webサーバー2台とApplication Load Balancer
 - HTTPS対応
 
 ## AWS構成図
-![AWS構成図](architecture.png)
+![AWS構成図](architecture%20(1).png)
 
 ## CloudWatchによる監視
 AWSコンソールからCloudWatchアラームを設定し、
