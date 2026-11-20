@@ -1,0 +1,20 @@
+# Terraformの作業データ
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# 秘密情報
+*.tfvars
+*.tfvars.json
+*.pem
+*.key
+.env
+.env.*
+
+# Macの不要ファイル
+.DS_Store
+
+
